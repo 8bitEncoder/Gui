@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "god_602de2e0",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-25.0.1/lib\" --add-modules javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.util=ALL-UNNAMED --add-opens javafx.fxml/com.sun.javafx.fxml=ALL-UNNAMED --add-opens javafx.graphics/com.sun.javafx.util=ALL-UNNAMED --enable-native-access=javafx.graphics"
+        }
+    ]
+}

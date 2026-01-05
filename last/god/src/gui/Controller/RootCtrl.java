@@ -71,6 +71,8 @@ public class RootCtrl implements Navigator {
         }
     }
 
+    
+
     //method to load the content in the content area
     private void loadContent(String fxml) {
         try {
@@ -84,5 +86,19 @@ public class RootCtrl implements Navigator {
     @Override  //method for sidebar to navigate (we will pass the navigator to sidebar)
     public void navigateTo(String fxml) {
         loadContent(fxml);   
+    }
+
+    // Add public method to hide sidebar
+    public void hideSidebar() {
+        if (sidebarVisible) {
+            toggleSidebar(); // This will hide it
+        }
+    }
+    
+    // Optional: Add public method to show sidebar
+    public void showSidebar() {
+        if (!sidebarVisible) {
+            toggleSidebar(); // This will show it
+        }
     }
 }

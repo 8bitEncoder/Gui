@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+    
+    <!-- Left Side: Navigation Bar -->
+    <left>
+        <fx:include source="NewBar.fxml" />
+    </left>
+    
+    <!-- Center: Content Area (this changes when navigating) -->
+    <center>
+        <StackPane fx:id="contentArea" />
+    </center>
+    
+    <!-- Background (optional) -->
+    <background>
+        <Background>
+            <BackgroundFill>
+                <LinearGradient cycleMethod="REFLECT" startX="0.0" startY="0.0" endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop color="#8DB9FF" offset="0.0"/>
+                        <Stop color="#D3C2FF" offset="0.5"/>
+                        <Stop color="#FFC1E8" offset="1.0"/>
+                    </stops>
+                </LinearGradient>
+            </BackgroundFill>
+        </Background>
+    </background>
+    
+</BorderPane>

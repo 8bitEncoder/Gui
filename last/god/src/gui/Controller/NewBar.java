@@ -5,6 +5,7 @@ import util.Navigator;
 
 public class NewBar {
     private Navigator navigator;
+    
 
     @FXML
     private void GoToDashboard() {

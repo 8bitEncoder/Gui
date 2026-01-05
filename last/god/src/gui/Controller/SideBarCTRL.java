@@ -20,4 +20,9 @@ public class SideBarCTRL {
     private void button2() {
         if (navigator != null) navigator.navigateTo("/gui/view/Page2.fxml");
     }
+
+    @FXML
+    private void button3() {
+        if (navigator != null) navigator.navigateTo("/gui/view/Page3.fxml");
+    }
 }

@@ -58,10 +58,10 @@ public class RootCtrl implements Navigator {
     //method to load sidebar
     private void loadSidebar() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/SideBar.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/NewBar.fxml"));
             Parent sidebar = loader.load();
 
-            SideBarCTRL ctrl = loader.getController();
+            NewBar ctrl = loader.getController();
             ctrl.setNavigator(this); // 🔑 ROOT passed here
 
             sidebarHolder.getChildren().setAll(sidebar);

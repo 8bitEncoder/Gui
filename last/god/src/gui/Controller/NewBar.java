@@ -8,33 +8,27 @@ public class NewBar {
 
     @FXML
     private void GoToDashboard() {
-        //navigateTo("dashboard.fxml");
-        System.out.println("dashboard");
+        if (navigator != null) navigator.navigateTo("/gui/view/dashboard.fxml");
     }
     
     @FXML
     private void GoToJoinSession() {
-        //navigateTo("joinsession.fxml");
-        // TODO: Implement register class
-        System.out.println("join sess");
+        if (navigator != null) navigator.navigateTo("/gui/view/JoinSess.fxml");
     }
     
     @FXML
     private void GoToPrivateSession() {
-        //navigateTo("joinprivatesession.fxml");
-        System.out.println("private");
+        if (navigator != null) navigator.navigateTo("/gui/view/PrivateSess.fxml");
     }
     
     @FXML
     private void GoToCreateSession() {
-        //navigateTo("CreateSession.fxml");
-        System.out.println("create");
+        if (navigator != null) navigator.navigateTo("/gui/view/MakeSess.fxml");
     }
     
     @FXML
     private void GoToLogout() {
-        //navigateTo("logout.fxml");
-        System.out.println("logout");
+        if (navigator != null) navigator.navigateTo("/gui/view/Logout.fxml");
     }
 
     //setter

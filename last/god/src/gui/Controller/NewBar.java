@@ -1,9 +1,10 @@
 package gui.Controller;
 
 import javafx.fxml.FXML;
+import util.Navigable;
 import util.Navigator;
 
-public class NewBar {
+public class NewBar implements Navigable {
     private Navigator navigator;
 
     @FXML
@@ -31,6 +32,7 @@ public class NewBar {
         if (navigator != null) navigator.navigateTo("/gui/view/Logout.fxml");
     }
 
+    @Override
     //setter
     public void setNavigator(Navigator navigator) {
         this.navigator = navigator;

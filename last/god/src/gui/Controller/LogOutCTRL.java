@@ -1,12 +1,21 @@
 package gui.Controller;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import util.Navigable;
+import util.Navigator;
 
-public class LogOutCTRL {
-    @FXML Button noBtn;
-    @FXML Button yesBtn;
+public class LogOutCTRL implements Navigable{
+    //@FXML Button noBtn;
+    //@FXML Button yesBtn;
+
+    private Navigator navigator;
+    //setter
+    public void setNavigator(Navigator navigator) {
+        this.navigator = navigator;
+    }
 
     public void yes(){System.out.println("yes");}
-    public void no(){System.out.println("no");}
+    public void no() {
+        if (navigator != null) navigator.navigateTo("/gui/view/dashboard.fxml");
+        else {System.out.println("navigator is null");}
+    }
 }

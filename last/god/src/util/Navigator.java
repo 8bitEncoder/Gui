@@ -1,5 +1,6 @@
 package util;
 
 public interface Navigator {
-    public void navigateTo(String fxml);
+    public abstract void navigateTo(String view); // different package import?
 }
+

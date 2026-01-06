@@ -10,24 +10,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import util.Navigator;  // Add this import
+import util.Navigable;
+import util.Navigator;
 
-public class MakeSessCTRL {
+public class MakeSessCTRL implements Navigable {
     
-    @FXML
-    private VBox card;  // Changed from 'emptyStateBox' to match FXML
-    
-    @FXML
-    private Button addButton;
-    
-    @FXML
-    private Label Label;
-    
-    @FXML
-    private Label Label2;
-    
-    private Navigator navigator;  // Add navigator field
+    @FXML private VBox emptyStateBox;
+    @FXML private Button addButton;
+    @FXML private Label Label;
+    @FXML private Label Label2;
+
+    private Navigator navigator;
     
     @FXML
     private void initialize() {
@@ -38,15 +31,18 @@ public class MakeSessCTRL {
      @FXML
     private void handleAddNewSession() {
         System.out.println("Add New Session button clicked");
-        
-        // Use the navigator injected by RootCtrl
         if (navigator != null) {
             navigator.navigateTo("/gui/view/AddSess.fxml");
-        } else {
-            System.err.println("ERROR: Navigator is null in MakeSessCTRL!");
-            Label2.setText("Navigation error: No navigator available");
         }
+        // This will be implemented later
+        // For now, just show a message
+        Label2.setText("Add Session feature coming soon!");
+        Label2.setStyle("-fx-text-fill: blue;");
+    }
+
+    @Override
+    public void setNavigator(Navigator navigator) {
+        this.navigator = navigator;
     }
     
-
 }

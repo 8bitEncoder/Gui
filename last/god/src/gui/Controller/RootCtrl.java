@@ -61,8 +61,10 @@ public class RootCtrl implements Navigator {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/NewBar.fxml"));
             Parent sidebar = loader.load();
 
-            NewBar ctrl = loader.getController();
-            ctrl.setNavigator(this); // 🔑 ROOT passed here
+            Object ctrl = loader.getController();
+            if (ctrl instanceof Navigable) {
+                ((Navigable)ctrl).setNavigator(this); // 🔑 ROOT passed here
+            }
 
             sidebarHolder.getChildren().setAll(sidebar);
 
@@ -74,31 +76,29 @@ public class RootCtrl implements Navigator {
     
 
     //method to load the content in the content area
-    private void loadContent(String fxml) {
+    public void loadContent(String fxml) {
         try {
-            Parent page = FXMLLoader.load(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+
+            Parent page = loader.load();
+
+            Object ctrl = loader.getController();
+            if (ctrl instanceof Navigable nav) {
+                nav.setNavigator(this);
+            }
+
             contentHolder.getChildren().setAll(page);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override  //method for sidebar to navigate (we will pass the navigator to sidebar)
+
+    @Override
     public void navigateTo(String fxml) {
-        loadContent(fxml);   
+        loadContent(fxml);
     }
 
-    // Add public method to hide sidebar
-    public void hideSidebar() {
-        if (sidebarVisible) {
-            toggleSidebar(); // This will hide it
-        }
-    }
-    
-    // Optional: Add public method to show sidebar
-    public void showSidebar() {
-        if (!sidebarVisible) {
-            toggleSidebar(); // This will show it
-        }
-    }
+
 }

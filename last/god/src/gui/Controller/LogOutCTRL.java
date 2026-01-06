@@ -1,48 +1,21 @@
 package gui.Controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import util.Navigable;
+import util.Navigator;
 
-public class LogOutCTRL {
-    @FXML private Button noBtn;
-    @FXML private Button yesBtn;
-    
-    @FXML
-    public void yes() {
-        try {
-            System.out.println("Logging out...");
-            
-            // Load login page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/login.fxml"));
-            Parent loginRoot = loader.load();
-            
-            // Get current stage
-            Stage stage = (Stage) yesBtn.getScene().getWindow();
-            stage.getScene().setRoot(loginRoot);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+public class LogOutCTRL implements Navigable{
+    //@FXML Button noBtn;
+    //@FXML Button yesBtn;
+
+    private Navigator navigator;
+    //setter
+    public void setNavigator(Navigator navigator) {
+        this.navigator = navigator;
     }
-    
-    @FXML
+
+    public void yes(){System.out.println("yes");}
     public void no() {
-        try {
-            System.out.println("Returning to dashboard...");
-            
-            // Load dashboard/main page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/view/Root.fxml"));
-            Parent dashboardRoot = loader.load();
-            
-            // Get current stage
-            Stage stage = (Stage) noBtn.getScene().getWindow();
-            stage.getScene().setRoot(dashboardRoot);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if (navigator != null) navigator.navigateTo("/gui/view/dashboard.fxml");
+        else {System.out.println("navigator is null");}
     }
 }
